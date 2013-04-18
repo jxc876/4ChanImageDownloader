@@ -9,6 +9,8 @@ import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.JOptionPane;
+
 import org.jsoup.*;
 
 public class GetImageLinks implements Runnable {
@@ -29,9 +31,12 @@ public class GetImageLinks implements Runnable {
 					.userAgent(
 							"Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
 					.referrer("http://www.google.com").get().toString();
-		} catch (IOException e) {
+		} catch (IOException ioe) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ioe.printStackTrace();
+		} catch (IllegalArgumentException iae){
+			JOptionPane.showMessageDialog(MainView.scrollPane,
+					"Please enter a valid thread URL");
 		}
 
 		String re3 = "(images\\.4chan\\.org)"; // Fully Qualified Domain Name 1
