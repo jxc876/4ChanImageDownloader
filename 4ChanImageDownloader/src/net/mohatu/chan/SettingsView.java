@@ -35,7 +35,8 @@ public class SettingsView implements Runnable {
 		frmSettings = new JFrame();
 		frmSettings.setTitle("Settings");
 		frmSettings.setBounds(100, 100, 244, 251);
-		frmSettings.setDefaultCloseOperation(0);
+		frmSettings.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmSettings.setLocationRelativeTo(MainView.scrollPane);
 
 		JPanel panel = new JPanel();
 		frmSettings.getContentPane().add(panel, BorderLayout.CENTER);
