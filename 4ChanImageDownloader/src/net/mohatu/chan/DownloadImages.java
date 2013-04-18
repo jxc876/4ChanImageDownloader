@@ -14,12 +14,18 @@ public class DownloadImages implements Runnable {
 	private String destinationFile;
 	private int iVal;
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public DownloadImages(String url, String dest,int iVal){
 		this.imageUrl = url;
 		this.destinationFile = dest;
 		this.iVal = iVal;
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	@Override
 	public void run() {
 		try {
