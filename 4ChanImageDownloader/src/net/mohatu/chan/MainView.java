@@ -58,7 +58,6 @@ public class MainView {
 	 */
 	private void initialize() {
 		frmchanImageDownloader = new JFrame();
-		frmchanImageDownloader.setIconImage(Toolkit.getDefaultToolkit().getImage(MainView.class.getResource("/com/mohatu/chan/icon.ico")));
 		frmchanImageDownloader.setResizable(false);
 		frmchanImageDownloader.setTitle("4Chan Image Downloader");
 		frmchanImageDownloader.setBounds(100, 100, 598, 434);
