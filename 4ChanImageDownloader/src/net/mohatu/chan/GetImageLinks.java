@@ -22,7 +22,8 @@ public class GetImageLinks implements Runnable {
 		// TODO Auto-generated method stub
 		String txt = "";
 		getThreadNumber();
-		try { //Connect to thread URL using Mozilla 5 userAgent. 4Chan.org blocks automated requests, this is a bypass.
+		try { // Connect to thread URL using Mozilla 5 userAgent. 4Chan.org
+				// blocks automated requests, this is a bypass.
 			txt = Jsoup
 					.connect(threadLink)
 					.userAgent(
@@ -98,8 +99,10 @@ public class GetImageLinks implements Runnable {
 
 			// save image
 
-			ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-			System.out.println("Starting ThreadPool with "+Runtime.getRuntime().availableProcessors()+" threads.");
+			ExecutorService executor = Executors.newFixedThreadPool(Runtime
+					.getRuntime().availableProcessors());
+			System.out.println("Starting ThreadPool with "
+					+ Runtime.getRuntime().availableProcessors() + " threads.");
 			for (int i = 0; i < rowCount; i++) {
 				Runnable worker = new DownloadImages("http://"
 						+ MainView.images.getValueAt(i, 0),
@@ -111,6 +114,7 @@ public class GetImageLinks implements Runnable {
 										.split("/src/")[1], i);
 				executor.execute(worker);
 			}
+
 			executor.shutdown();
 			while (!executor.isTerminated()) {
 			}
@@ -128,4 +132,5 @@ public class GetImageLinks implements Runnable {
 		}
 		MainView.statusLabel.setText("Idle...");
 	}
+
 }

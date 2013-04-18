@@ -28,6 +28,10 @@ public class MainView {
 	public ArrayList<String> imageLinks = new ArrayList<String>();
 	public static JLabel statusLabel;
 	public static JScrollPane scrollPane;
+	public static int imgWidth;
+	public static int imgHeight;
+	public static boolean customSize = false;
+
 
 	/**
 	 * Launch the application.
@@ -59,7 +63,7 @@ public class MainView {
 		frmchanImageDownloader = new JFrame();
 		frmchanImageDownloader.setResizable(false);
 		frmchanImageDownloader.setTitle("4Chan Image Downloader");
-		frmchanImageDownloader.setBounds(100, 100, 598, 434);
+		frmchanImageDownloader.setBounds(100, 100, 598, 465);
 		frmchanImageDownloader.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
@@ -95,15 +99,33 @@ public class MainView {
 		table.setModel(images);
 		
 		scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(21, 39, 550, 324);
+		scrollPane.setBounds(21, 70, 550, 324);
 		panel.add(scrollPane);
 		
 		statusLabel = new JLabel("Idle...");
-		statusLabel.setBounds(20, 374, 233, 14);
+		statusLabel.setBounds(20, 405, 233, 14);
 		panel.add(statusLabel);
 		
 		progressBar = new JProgressBar();
-		progressBar.setBounds(263, 374, 308, 21);
+		progressBar.setBounds(263, 405, 308, 21);
 		panel.add(progressBar);
+		
+		JButton btnSettings = new JButton("Settings");
+		btnSettings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SettingsView settings = new SettingsView();
+				Thread set = new Thread(settings);
+				set.start();
+			}
+		});
+		btnSettings.setBounds(473, 36, 98, 23);
+		panel.add(btnSettings);
 	}
+	
+	public static void setImageSize(boolean bool, int w, int h) {
+		MainView.imgHeight = h;
+		MainView.imgWidth = w;
+		MainView.customSize = bool;
+	}
+	
 }
