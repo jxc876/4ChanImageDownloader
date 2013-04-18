@@ -31,6 +31,7 @@ public class MainView {
 	public static int imgWidth;
 	public static int imgHeight;
 	public static boolean customSize = false;
+	private String version = "v1.3";
 
 
 	/**
@@ -62,7 +63,7 @@ public class MainView {
 	private void initialize() {
 		frmchanImageDownloader = new JFrame();
 		frmchanImageDownloader.setResizable(false);
-		frmchanImageDownloader.setTitle("4Chan Image Downloader");
+		frmchanImageDownloader.setTitle("4Chan Image Downloader "+version);
 		frmchanImageDownloader.setBounds(100, 100, 598, 465);
 		frmchanImageDownloader.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
