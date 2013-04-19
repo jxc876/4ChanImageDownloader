@@ -11,6 +11,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
@@ -78,6 +80,18 @@ public class MainView {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		try {
+			UIManager.setLookAndFeel(UIManager
+					.getSystemLookAndFeelClassName());
+		} catch (UnsupportedLookAndFeelException e) {
+			// handle exception
+		} catch (ClassNotFoundException e) {
+			// handle exception
+		} catch (InstantiationException e) {
+			// handle exception
+		} catch (IllegalAccessException e) {
+			// handle exception
+		}
 		frmchanImageDownloader = new JFrame();
 		frmchanImageDownloader.setResizable(false);
 		frmchanImageDownloader.setTitle("4Chan Image Downloader " + version);
@@ -103,9 +117,9 @@ public class MainView {
 				btnSettings.setEnabled(false);
 				btnClear.setEnabled(false);
 				btnDownload.setEnabled(false);
-				//Button starts download
+				// Button starts download
 				matcher = p.matcher(threadLink.getText().toString());
-				if(matcher.find()){
+				if (matcher.find()) {
 					progressBar.setIndeterminate(true);
 					statusLabel.setText("Generating Links...");
 					GetImageLinks gil = new GetImageLinks();
@@ -146,7 +160,7 @@ public class MainView {
 		});
 		btnSettings.setBounds(473, 36, 98, 23);
 		panel.add(btnSettings);
-		
+
 		btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -162,8 +176,8 @@ public class MainView {
 		MainView.imgWidth = w;
 		MainView.customSize = bool;
 	}
-	
-	public static void enableButtons(){
+
+	public static void enableButtons() {
 		btnSettings.setEnabled(true);
 		btnClear.setEnabled(true);
 		btnDownload.setEnabled(true);
