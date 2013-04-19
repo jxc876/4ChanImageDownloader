@@ -35,7 +35,7 @@ public class MainView {
 	public static int imgWidth;
 	public static int imgHeight;
 	public static boolean customSize = false;
-	private String version = "v1.3.5";
+	private String version = "v1.3.6";
 	private String re1 = "(boards\\.4chan\\.org)";
 	private String re2 = "(\\/)";
 	private String re3 = "((?:[a-z][a-z0-9_]*))";
@@ -86,7 +86,7 @@ public class MainView {
 		panel.setLayout(null);
 
 		threadLink = new JTextField();
-		threadLink.setBounds(93, 8, 370, 20);
+		threadLink.setBounds(93, 8, 375, 20);
 		panel.add(threadLink);
 		threadLink.setColumns(10);
 
@@ -127,7 +127,7 @@ public class MainView {
 		panel.add(statusLabel);
 
 		progressBar = new JProgressBar();
-		progressBar.setBounds(213, 39, 250, 20);
+		progressBar.setBounds(215, 36, 146, 23);
 		panel.add(progressBar);
 
 		JButton btnSettings = new JButton("Settings");
@@ -140,6 +140,15 @@ public class MainView {
 		});
 		btnSettings.setBounds(473, 36, 98, 23);
 		panel.add(btnSettings);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		btnClear.setBounds(370, 36, 98, 23);
+		panel.add(btnClear);
 	}
 
 	public static void setImageSize(boolean bool, int w, int h) {
@@ -147,5 +156,4 @@ public class MainView {
 		MainView.imgWidth = w;
 		MainView.customSize = bool;
 	}
-
 }
