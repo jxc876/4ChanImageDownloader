@@ -33,8 +33,9 @@ public class SettingsView implements Runnable {
 	 */
 	private void initialize() {
 		frmSettings = new JFrame();
+		frmSettings.setResizable(false);
 		frmSettings.setTitle("Settings");
-		frmSettings.setBounds(100, 100, 244, 251);
+		frmSettings.setBounds(100, 100, 225, 240);
 		frmSettings.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmSettings.setLocationRelativeTo(MainView.scrollPane);
 
@@ -64,7 +65,7 @@ public class SettingsView implements Runnable {
 				}
 			}
 		});
-		btnApply.setBounds(20, 182, 95, 23);
+		btnApply.setBounds(10, 182, 95, 23);
 		panel.add(btnApply);
 
 		btnCancel = new JButton("Cancel");
@@ -73,13 +74,13 @@ public class SettingsView implements Runnable {
 				frmSettings.dispose();
 			}
 		});
-		btnCancel.setBounds(117, 182, 95, 23);
+		btnCancel.setBounds(113, 182, 95, 23);
 		panel.add(btnCancel);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Size Options",
 				TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2.setBounds(16, 16, 198, 160);
+		panel_2.setBounds(10, 11, 198, 160);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 

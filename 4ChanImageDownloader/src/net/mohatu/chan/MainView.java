@@ -78,7 +78,7 @@ public class MainView {
 		frmchanImageDownloader = new JFrame();
 		frmchanImageDownloader.setResizable(false);
 		frmchanImageDownloader.setTitle("4Chan Image Downloader " + version);
-		frmchanImageDownloader.setBounds(100, 100, 598, 465);
+		frmchanImageDownloader.setBounds(100, 100, 587, 430);
 		frmchanImageDownloader.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
@@ -91,7 +91,7 @@ public class MainView {
 		threadLink.setColumns(10);
 
 		JLabel lblThreadLink = new JLabel("Thread Link:");
-		lblThreadLink.setBounds(21, 11, 91, 14);
+		lblThreadLink.setBounds(10, 11, 102, 14);
 		panel.add(lblThreadLink);
 
 		JButton btnDownload = new JButton("Download");
@@ -119,15 +119,15 @@ public class MainView {
 		table.setModel(images);
 
 		scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(21, 70, 550, 324);
+		scrollPane.setBounds(10, 70, 561, 324);
 		panel.add(scrollPane);
 
 		statusLabel = new JLabel("Idle...");
-		statusLabel.setBounds(20, 405, 233, 14);
+		statusLabel.setBounds(10, 39, 244, 20);
 		panel.add(statusLabel);
 
 		progressBar = new JProgressBar();
-		progressBar.setBounds(263, 405, 308, 21);
+		progressBar.setBounds(213, 39, 250, 20);
 		panel.add(progressBar);
 
 		JButton btnSettings = new JButton("Settings");
