@@ -38,7 +38,7 @@ public class MainView {
 	public static int imgWidth;
 	public static int imgHeight;
 	public static boolean customSize = false;
-	private String version = "v1.3.6";
+	private String version = "v1.4";
 	private String re1 = "(boards\\.4chan\\.org)";
 	private String re2 = "(\\/)";
 	private String re3 = "((?:[a-z][a-z0-9_]*))";
