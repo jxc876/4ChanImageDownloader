@@ -16,6 +16,9 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.swing.JProgressBar;
 
 public class MainView {
@@ -33,6 +36,17 @@ public class MainView {
 	public static int imgHeight;
 	public static boolean customSize = false;
 	private String version = "v1.3";
+	private String re1 = "(boards\\.4chan\\.org)";
+	private String re2 = "(\\/)";
+	private String re3 = "((?:[a-z][a-z]+))";
+	private String re4 = "(\\/)";
+	private String re5 = "(res)";
+	private String re6 = "(\\/)";
+	private String re7 = "(\\d+)";
+
+	Pattern p = Pattern.compile(re1 + re2 + re3 + re4 + re5 + re6 + re7,
+			Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+	Matcher matcher;
 
 	/**
 	 * Launch the application.
@@ -83,10 +97,10 @@ public class MainView {
 		JButton btnDownload = new JButton("Download");
 		btnDownload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (threadLink.getText().toString()
-						.contains("http://boards.4chan.org/")) {
+				//Button starts download
+				matcher = p.matcher(threadLink.getText().toString());
+				if(matcher.find()){
 					progressBar.setIndeterminate(true);
-					// Button that starts the fun
 					statusLabel.setText("Generating Links...");
 					GetImageLinks gil = new GetImageLinks();
 					gil.setThreadLink(threadLink.getText());
@@ -96,7 +110,6 @@ public class MainView {
 					JOptionPane.showMessageDialog(MainView.scrollPane,
 							"Please enter a valid thread URL");
 				}
-
 			}
 		});
 		btnDownload.setBounds(473, 7, 98, 23);
