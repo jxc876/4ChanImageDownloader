@@ -25,6 +25,9 @@ public class MainView {
 
 	private JFrame frmchanImageDownloader;
 	private JTextField threadLink;
+	private static JButton btnSettings;
+	private static JButton btnClear;
+	private static JButton btnDownload;
 	public static JTable table;
 	public static JProgressBar progressBar;
 	public static DefaultTableModel images = new DefaultTableModel(
@@ -94,9 +97,12 @@ public class MainView {
 		lblThreadLink.setBounds(10, 11, 102, 14);
 		panel.add(lblThreadLink);
 
-		JButton btnDownload = new JButton("Download");
+		btnDownload = new JButton("Download");
 		btnDownload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				btnSettings.setEnabled(false);
+				btnClear.setEnabled(false);
+				btnDownload.setEnabled(false);
 				//Button starts download
 				matcher = p.matcher(threadLink.getText().toString());
 				if(matcher.find()){
@@ -130,7 +136,7 @@ public class MainView {
 		progressBar.setBounds(215, 36, 146, 23);
 		panel.add(progressBar);
 
-		JButton btnSettings = new JButton("Settings");
+		btnSettings = new JButton("Settings");
 		btnSettings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				SettingsView settings = new SettingsView();
@@ -141,10 +147,10 @@ public class MainView {
 		btnSettings.setBounds(473, 36, 98, 23);
 		panel.add(btnSettings);
 		
-		JButton btnClear = new JButton("Clear");
+		btnClear = new JButton("Clear");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				images.setRowCount(0);
 			}
 		});
 		btnClear.setBounds(370, 36, 98, 23);
@@ -155,5 +161,11 @@ public class MainView {
 		MainView.imgHeight = h;
 		MainView.imgWidth = w;
 		MainView.customSize = bool;
+	}
+	
+	public static void enableButtons(){
+		btnSettings.setEnabled(true);
+		btnClear.setEnabled(true);
+		btnDownload.setEnabled(true);
 	}
 }

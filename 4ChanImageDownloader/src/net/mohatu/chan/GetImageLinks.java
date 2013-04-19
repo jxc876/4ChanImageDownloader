@@ -129,6 +129,7 @@ public class GetImageLinks implements Runnable {
 		}
 		MainView.statusLabel.setText("Done!");
 		MainView.progressBar.setIndeterminate(false);
+		MainView.enableButtons();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
