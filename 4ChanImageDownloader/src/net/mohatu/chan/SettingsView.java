@@ -63,6 +63,7 @@ public class SettingsView implements Runnable {
 					JOptionPane.showMessageDialog(frmSettings,
 							"Please enter integers!");
 				}
+				frmSettings.dispose();
 			}
 		});
 		btnApply.setBounds(10, 182, 95, 23);
