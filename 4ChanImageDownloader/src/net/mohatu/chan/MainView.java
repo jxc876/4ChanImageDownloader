@@ -146,6 +146,9 @@ public class MainView {
 				} else {
 					JOptionPane.showMessageDialog(MainView.scrollPane,
 							"Please enter a valid thread URL");
+					btnSettings.setEnabled(true);
+					btnClear.setEnabled(true);
+					btnDownload.setEnabled(true);
 				}
 			}
 		});
