@@ -56,7 +56,7 @@ public class GetImageLinks implements Runnable {
 					"Please enter a valid thread URL");
 		}
 
-		String re3 = "(images\\.4chan\\.org)"; // Fully Qualified Domain Name 1
+		String re3 = "(i\\.4cdn\\.org)"; // Fully Qualified Domain Name 1
 		String re4 = "(\\/)"; // Any Single Character 3
 		String re5 = "((?:[a-z][a-z0-9_]*))"; // Variable Name 1
 		String re6 = "(\\/)"; // Any Single Character 4
